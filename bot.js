@@ -8,8 +8,10 @@ Date: 6/6/2017
 var irc = require('irc');
 var readline = require('readline');
 
+var dateTime = require('node-datetime');  //Need for timestamp.
+
 //constants
-const username = 'Vito_Corleone';
+const username = 'Vito';
 const channelName = '#atokluhar';   // Has to start with a '#'
 const chatroom = 'irc.freenode.net';
 
@@ -18,9 +20,13 @@ var client = new irc.Client('irc.freenode.net', username, {
     channels: [channelName],
 });
 
+//Create current timestamp
+var dt = dateTime.create();
+var formatted = dt.format('H:M');
+
 //Listen for any incoming messages on the channel
 client.addListener('message', function (from, to, message) {
-    console.log('[GORDON] '+ from + ' @ ' + to.substring(1) + '=>  ' + message);  // Log the message in the console. Need substring to exculde the '#'
+    console.log('[GORDON] '+ from + ' @ ' + formatted + '=>  ' + message);  // Log the message in the console. Need substring to exculde the '#'
 });
 
 //Basics on I/O in the interface. (Need this for typing in the console).
@@ -39,7 +45,8 @@ rl.on('line', (input) => {
   //send the message to the chatserver when the console event is emmitted
   client.say(channelName, inputlogger(input));
   //Log your message in the console.
-  console.log('[GORDON] '+ username + '(you) @ ' + channelName.substring(1) + ' => ' + input);
+
+  console.log('[GORDON] '+ username + '(you) @ ' + formatted + '=> ' + input);
 });
 
 //TO-DO: Add ping sound for new message received.
