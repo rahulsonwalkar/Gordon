@@ -7,13 +7,14 @@ Date: 6/6/2017
 //Modules
 var irc = require('irc');
 var readline = require('readline');
-
+var beeper = require('beeper');
 var dateTime = require('node-datetime');  //Need for timestamp.
 
 //constants
-const username = 'Vito';
-const channelName = '#atokluhar';   // Has to start with a '#'
+const username = '<Your username>'; //
+const channelName = '#<Your channel name>';   // Has to start with a '#'
 const chatroom = 'irc.freenode.net';
+var beepCounter = true;
 
 //Create a bot and connect to Channel
 var client = new irc.Client('irc.freenode.net', username, {
@@ -27,6 +28,18 @@ var formatted = dt.format('H:M');
 //Listen for any incoming messages on the channel
 client.addListener('message', function (from, to, message) {
     console.log('[GORDON] '+ from + ' @ ' + formatted + '=>  ' + message);  // Log the message in the console. Need substring to exculde the '#'
+
+    //Beep if it hasn't beeped in 30 seconds.
+    if(beepCounter){
+        beeper();
+
+        //Reset the beepCounter
+        beepCounter = false;
+        setTimeout(function(){
+          beepCounter = true;
+        }, 30000);
+    }
+
 });
 
 //Basics on I/O in the interface. (Need this for typing in the console).
@@ -49,6 +62,19 @@ rl.on('line', (input) => {
   console.log('[GORDON] '+ username + '(you) @ ' + formatted + '=> ' + input);
 });
 
-//TO-DO: Add ping sound for new message received.
+//Log when a user joins a channel
+//For some unkown reason, nick contains the username of the person who joins.
+client.addListener('join', function (channel, nick, message) {
+    console.log('[GORDON] '+ nick + ' joined the chat');
+    beeper(2);  //Beeps twice when someone joins
+});
+
+
+//Log when a user leaves irc
+client.addListener('quit', function (nick, reason, channels, message) {
+    console.log('[GORDON] '+ nick + ' left the chat');
+ });
+
+
 //TO-DO: Add bot commands (enable/disable sound, change username).
 //TO-DO: Make links clickable if possible.
