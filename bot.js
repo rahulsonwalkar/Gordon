@@ -11,8 +11,8 @@ var beeper = require('beeper');
 var dateTime = require('node-datetime');  //Need for timestamp.
 
 //constants
-const username = '<Your username>'; //
-const channelName = '#<Your channel name>';   // Has to start with a '#'
+const username = 'viewsonic99'; // <Your username>
+const channelName = '#atokluhar';   // Has to start with a '#'  <Your channel name>
 const chatroom = 'irc.freenode.net';
 var beepCounter = true;
 
@@ -21,13 +21,15 @@ var client = new irc.Client('irc.freenode.net', username, {
     channels: [channelName],
 });
 
-//Create current timestamp
-var dt = dateTime.create();
-var formatted = dt.format('H:M');
-
 //Listen for any incoming messages on the channel
 client.addListener('message', function (from, to, message) {
-    console.log('[GORDON] '+ from + ' @ ' + formatted + '=>  ' + message);  // Log the message in the console. Need substring to exculde the '#'
+
+    //Generate current time. Has to be generated within this scope to get current time. Cannot be generated globally.
+    var dt = dateTime.create();
+    var formatted = dt.format('H:M');
+
+    // Log the message in the console. Need substring to exculde the '#' in channelName
+    console.log('[GORDON] '+ from + ' @ ' + formatted + '=>  ' + message);
 
     //Beep if it hasn't beeped in 30 seconds.
     if(beepCounter){
@@ -55,15 +57,20 @@ var inputlogger = function (input) {
 
 //'line' is called everytime there is an event emmited on the console.
 rl.on('line', (input) => {
+
+  //Generate current time. Has to be generated within this scope to get current time. Cannot be generated globally.
+  var dt = dateTime.create();
+  var formatted = dt.format('H:M');
+
   //send the message to the chatserver when the console event is emmitted
   client.say(channelName, inputlogger(input));
-  //Log your message in the console.
 
+  //Log your message in the console.
   console.log('[GORDON] '+ username + '(you) @ ' + formatted + '=> ' + input);
 });
 
 //Log when a user joins a channel
-//For some unkown reason, nick contains the username of the person who joins.
+//Issue: For some unkown reason, nick contains the username of the person who joins.
 client.addListener('join', function (channel, nick, message) {
     console.log('[GORDON] '+ nick + ' joined the chat');
     beeper(2);  //Beeps twice when someone joins
