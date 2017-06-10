@@ -1,2 +1,2 @@
 # Gordon
-Chatroom built inside Git-Bash/Terminal. For lazy devs who hate switching between tabs.
+Chatroom built inside Command Line Interface (CLI). For lazy devs who hate switching between tabs.
