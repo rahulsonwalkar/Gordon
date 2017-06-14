@@ -20,6 +20,7 @@ var beepCounter = true;
 var client = new irc.Client('irc.freenode.net', username, {
     channels: [channelName],
 });
+console.log("Connecting to channel...");
 
 //Listen for any incoming messages on the channel
 client.addListener('message', function (from, to, message) {
