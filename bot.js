@@ -1,4 +1,4 @@
-color/*
+/*
 Gordon: Team chatroom built inside Git-Bash(Terminal).
 Author: Rahul Sonwalkar (github.com/rahulsonwalkar)
 Date: 6/6/2017
