@@ -1,2 +1,23 @@
 # Gordon
-Chatroom built inside Command Line Interface (CLI). For lazy devs who hate switching between tabs.
+Lightweight team communication tool built inside Command Line Interface (CLI). For lazy Devs who hate switching between tabs.
+
+<Insert GIF here>
+
+Clone or download the repo.
+```
+$ git clone https://github.com/rahulsonwalkar/Gordon
+```
+Navigate into the directory and run the code.
+```
+$ cd Gordon
+$ npm start
+```
+
+## Custom chatroom
+
+To create a seperate chatroom for your team, edit the channel name in the channel.js file.
+
+`return '#<YOUR_CHANNEL_NAME>'`
+
+Keep channel names complicated to increase privacy.
+
