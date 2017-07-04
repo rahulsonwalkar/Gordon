@@ -7,9 +7,13 @@ Clone or download the repo.
 ```
 $ git clone https://github.com/rahulsonwalkar/Gordon
 ```
-Navigate into the directory and run the code.
+Navigate into the directory and install the dependencies.
 ```
 $ cd Gordon
+$ npm install
+```
+Usage:
+```
 $ npm start
 ```
 
