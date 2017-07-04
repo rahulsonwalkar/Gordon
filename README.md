@@ -1,7 +1,7 @@
 # Gordon
 Lightweight team communication tool built inside Command Line Interface (CLI). For lazy Devs who hate switching between tabs.
 
-<img src="http://imgur.com/TKR9E5G"/>
+<img src="http://imgur.com/TKR9E5G.gif"/>
 
 ## Get started
 
