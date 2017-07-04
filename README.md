@@ -3,6 +3,8 @@ Lightweight team communication tool built inside Command Line Interface (CLI). F
 
 <Insert GIF here>
 
+## Get started
+
 Clone or download the repo.
 ```
 $ git clone https://github.com/rahulsonwalkar/Gordon
@@ -11,8 +13,9 @@ Navigate into the directory and install the dependencies.
 ```
 $ cd Gordon
 $ npm install
+$ npm start
 ```
-Usage:
+## Usage
 ```
 $ npm start
 ```
@@ -23,5 +26,5 @@ To create a seperate chatroom for your team, edit the channel name in the channe
 
 `return '#<YOUR_CHANNEL_NAME>'`
 
-Keep channel names complicated to increase privacy.
+Tip: Keep channel names complicated to increase privacy.
 
