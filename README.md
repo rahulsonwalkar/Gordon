@@ -28,3 +28,7 @@ To create a seperate chatroom for your team, edit the channel name in the channe
 
 Tip: Keep channel names complicated to increase privacy.
 
+
+##### Creator
+Rahul Sonwalkar - [Blog](http://rahul.ru) and [About](http://rahul.ru/about)
+Website: http://rahul.ru
