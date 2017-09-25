@@ -5,14 +5,14 @@
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node bot.js"
+    "start": "node Bot"
   },
   "author": "Rahul Sonwalkar",
   "dependencies": {
-       "irc": "latest",
-       "beeper": "latest",
-       "node-datetime": "latest",
-       "chalk": "latest"
-   },
+    "irc": "latest",
+    "beeper": "latest",
+    "node-datetime": "latest",
+    "chalk": "latest"
+  },
   "license": "ISC"
 }
