@@ -12,9 +12,7 @@ var beepCounter = true;
 var log  = require('../Message');
 const data = require('../Data')
 
-var channel = require('../Channel')(process.argv);
-
-console.log(channel);
+const channel = require('../Channel')(process.argv);
 
 var inputlogger = function (input) {
   return input;
@@ -55,7 +53,7 @@ rl.question('Pick a username-> ', function(answer){
       });
 
       rl.on('line', (input) => {
-        client.say(channelName, inputlogger(input));
+        client.say(channel, inputlogger(input));
         log(username, input, "outgoing");
       });
 
