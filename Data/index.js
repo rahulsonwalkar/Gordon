@@ -1,4 +1,4 @@
 module.exports = {
-    "channelName" : "#ozarkawaterbottle",
+    "channelName" : "#gordonbetterthanslack",
     "chatroom" : "irc.freenode.net"
   }

@@ -12,6 +12,10 @@ var beepCounter = true;
 var log  = require('../Message');
 const data = require('../Data')
 
+var channel = require('../Channel')(process.argv);
+
+console.log(channel);
+
 var inputlogger = function (input) {
   return input;
 }
@@ -23,15 +27,15 @@ const rl = readline.createInterface({
 });
 
 rl.question('Pick a username-> ', function(answer){
-  
+
       username = answer;
 
       var client = new irc.Client(data.chatroom, username, {
-          channels: [data.channelName],
+          channels: [channel],
       });
       console.log("Connecting to channel...");
 
-      client.addListener('join', function (channel, nick, message) {
+      client.addListener('join', function (something, nick, message) {
 
           log(nick, "", "join");
           beeper(2);
