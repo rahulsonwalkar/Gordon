@@ -1,9 +1,9 @@
-# Gordon
+<h1 align="center"> Gordon :pager: </h1>
 Lightweight team communication tool built inside Command Line Interface (CLI). For lazy Devs who hate switching between tabs.
 
 <img src="http://imgur.com/TKR9E5G.gif"/>
 
-## Get started
+## <h3 align="center"> Get started </h3>
 
 Clone or download the repo.
 ```
@@ -15,12 +15,12 @@ $ cd Gordon
 $ npm install
 $ npm start
 ```
-## Usage
+## <h3 align="center"> Usage </h3>
 ```
 $ npm start
 ```
 
-## Custom chatroom
+## <h3 align="center"> Custom chatroom </h3>
 
 To create a seperate chatroom for your team, edit the channel name in the channel.js file.
 
